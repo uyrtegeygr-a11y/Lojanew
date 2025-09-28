@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <title>Carrinho - E-commerce Premium</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-shopping-bag"></i> E-Shop Premium</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="cadastro.html" id="link-cadastro" class="nav-link">Cadastro</a>
+                <a href="cliente.html" class="nav-link">Minha Conta</a>
+                <a href="carrinho.html" class="nav-link active">
+                    <i class="fas fa-shopping-cart"></i>
+                    Carrinho (<span id="cart-count">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <h2><i class="fas fa-shopping-cart"></i> Seu Carrinho</h2>
+            
+            <div class="cart-content">
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be loaded here -->
+                </div>
+
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Resumo do Pedido</h3>
+                        <div class="summary-line">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">R$ 0,00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Frete:</span>
+                            <span id="shipping">R$ 15,00</span>
+                        </div>
+                        <div class="summary-line total">
+                            <span>Total:</span>
+                            <span id="total">R$ 0,00</span>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-full" id="checkout-btn" onclick="processCheckout()">
+                            <i class="fas fa-credit-card"></i> Finalizar Compra
+                        </button>
+                        <br>
+                    <a href="index.html" class="btn btn-secondary btn-full" style="top: 10px;">
+                            <i class="fas fa-arrow-left"></i> Continuar Comprando
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="empty-cart" id="empty-cart" style="display: none;">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Seu carrinho está vazio</h3>
+                <p>Adicione produtos para continuar</p>
+                <a href="index.html" class="btn btn-primary">Ver Produtos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content checkout-modal">
+            <span class="close" onclick="closeModal('checkout-modal')">&times;</span>
+            <h3><i class="fas fa-credit-card"></i> Finalizar Compra</h3>
+            
+            
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="payment-method">Forma de Pagamento</label>
+                    <select id="payment-method" required>
+                        <option value="">Selecione...</option>
+                        <option value="credit">Cartão de Crédito</option>
+                        <option value="debit">Cartão de Débito</option>
+                    
+                    </select>
+                </div>
+
+                <div id="card-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="card-number">Número do Cartão</label>
+                        <input type="text" id="card-number" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Validade</label>
+                            <input type="text" id="card-expiry" placeholder="MM/AA">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvv">CVV</label>
+                            <input type="text" id="card-cvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-check"></i> Confirmar Pagamento
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="purchase-success-modal" class="modal">
+        <div class="modal-content success-modal">
+            <i class="fas fa-check-circle"></i>
+            <h3>Compra Realizada com Sucesso!</h3>
+            <p>Pedido #<span id="order-number"></span></p>
+            <p>NF-e será enviada por e-mail em até 24h</p>
+            <button class="btn btn-primary" onclick="window.location.href='cliente.html'">Ver Pedidos</button>
+        </div>
+    </div>
+
+    <script src="./produtos.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

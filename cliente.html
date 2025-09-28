@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <title>Área do Cliente - E-commerce Premium</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-shopping-bag"></i> E-Shop Premium</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="cadastro.html" id="link-cadastro" class="nav-link">Cadastro</a>
+                <a href="cliente.html" class="nav-link active">Minha Conta</a>
+                <a href="carrinho.html" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    Carrinho (<span id="cart-count">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Client Area -->
+    <section class="client-section">
+        <div class="container">
+            <!-- Login Form -->
+            <div class="login-container" id="login-container">
+                <div class="form-container">
+                    <h2><i class="fas fa-sign-in-alt"></i> Área do Cliente</h2>
+                    <p class="form-subtitle">Faça login para acessar sua conta</p>
+                    
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="login-email">E-mail</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login-senha">Senha</label>
+                            <input type="password" id="login-senha" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-sign-in-alt"></i> Entrar
+                        </button>
+                    </form>
+
+                    <div class="form-footer">
+                        <p>Não tem uma conta? <a href="cadastro.html" class="link">Cadastre-se</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Dashboard -->
+            <div class="client-dashboard" id="client-dashboard" style="display: none;">
+                <div class="dashboard-header">
+                    <h2><i class="fas fa-user" ></i> Bem-vindo, <span id="client-name"></span>!</h2>
+                    <button class="btn btn-secondary" onclick="logout()" style="display: none;">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </button>
+                </div>
+
+                <div class="dashboard-tabs">
+                    <button class="tab-btn active" onclick="showTab('orders')">
+                        <i class="fas fa-shopping-bag"></i> Meus Pedidos
+                    </button>
+                    <button class="tab-btn" onclick="showTab('profile')">
+                        <i class="fas fa-user-edit"></i> Meu Perfil
+                    </button>
+                </div>
+
+                <!-- Orders Tab -->
+                <div class="tab-content active" id="orders-tab">
+                    <h3>Histórico de Pedidos</h3>
+                    <div class="orders-list" id="orders-list">
+                        <!-- Orders will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div class="tab-content" id="profile-tab">
+                    <h3>Meus Dados</h3>
+                    <div class="profile-info" id="profile-info">
+                        <!-- Profile info will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Details Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content order-modal">
+            <span class="close" onclick="closeModal('order-modal')">&times;</span>
+            <h3>Detalhes do Pedido</h3>
+            <div id="order-details">
+                <!-- Order details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="./produtos.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

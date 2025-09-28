@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <title>E-commerce Premium - Loja Online Segura</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-shopping-bag"></i> E-Shop Premium</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="cadastro.html" id="link-cadastro" class="nav-link">Cadastro</a>
+                <a href="cliente.html" class="nav-link">Minha Conta</a>
+                <a href="carrinho.html" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    Carrinho (<span id="cart-count">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Loja Online com Segurança Total</h2>
+            <p>Cadastro validado, CPF verificado e nota fiscal garantida</p>
+            <a href="cadastro.html" class="btn btn-primary">Cadastre-se Agora</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>CPF Validado</h3>
+                    <p>Validação em tempo real do CPF para maior segurança</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-receipt"></i>
+                    <h3>Nota Fiscal</h3>
+                    <p>Emissão automática de NF-e para todas as compras</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h3>Antifraude</h3>
+                    <p>Sistema avançado de proteção contra fraudes</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-history"></i>
+                    <h3>Histórico</h3>
+                    <p>Acompanhe todos os seus pedidos na área do cliente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 E-Shop Premium. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <script src="./produtos.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
